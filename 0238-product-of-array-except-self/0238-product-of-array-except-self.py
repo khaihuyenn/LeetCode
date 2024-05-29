@@ -7,16 +7,16 @@ class Solution(object):
                 product *= num
             else:
                 zero_count += 1
-        answer = []
+        ans = []
         if zero_count > 1:
             return [0] * len(nums)
         for num in nums:
             if num != 0:
                 if zero_count == 1:
-                    answer.append(0)
+                    ans.append(0)
                 else:
-                    answer.append(product // num)
+                    ans.append(product // num)
             else:
-                answer.append(product)
-        return answer
+                ans.append(product)
+        return ans
         
