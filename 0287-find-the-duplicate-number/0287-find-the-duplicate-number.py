@@ -5,4 +5,4 @@ class Solution(object):
             if num in seen:
                 return num
             seen.add(num)
-        
+            
