@@ -1,15 +1,11 @@
 class Solution(object):
     def fib(self, n):
+        dp = [0] * (n + 1)
         # Base case
-        if (n <= 1):
-            return n
-        curr = 0
-        prev1 = 1
-        prev2 = 0
-        for i in range(2, n+1):
-            curr = prev1 + prev2
-            prev2 = prev1
-            prev1 = curr
-        return curr
-
+        if n == 0:
+            return 0
+        dp[1] = 1
+        for i in range(2, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+        return dp[n]
         
