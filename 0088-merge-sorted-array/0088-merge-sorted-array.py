@@ -7,6 +7,15 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        for i in range(m,len(nums1)):
-            nums1[i] = nums2[i + n - len(nums1)]
-        nums1.sort()
+        i = m - 1 # Last element of nums1
+        j = n - 1 # Last element of nums2
+        k = m + n - 1 # Last index of nums1 (final sorted array)
+    
+        while j >= 0:
+            if i >= 0 and nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
+            else:
+                nums1[k] = nums2[j]
+                j -= 1
+            k -= 1
