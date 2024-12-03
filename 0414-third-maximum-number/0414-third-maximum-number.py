@@ -4,10 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # set() - Remove duplicates; list() - {} -> []
-        new_nums = list(set(nums))   # O(n)
-        new_nums.sort(reverse=True)  # O(nlogn)
-        if len(new_nums) < 3: 
-            return max(new_nums)
+        first, second, third = float('-inf'), float('-inf'), float('-inf')
+        print(first, second, third)
+        for num in nums:
+            if num > first:
+                first, second, third = num, first, second
+            elif first > num > second:
+                second, third = num, second
+            elif second > num > third:
+                third = num
+        if third != float('-inf'):
+            return third
         else:
-            return new_nums[2]
+            return first
+        
