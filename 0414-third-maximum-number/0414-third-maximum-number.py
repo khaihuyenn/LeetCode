@@ -1,6 +1,9 @@
 class Solution(object):
     def thirdMax(self, nums):
         first, second, third = float('-inf'), float('-inf'), float('-inf')
+        #Base case:
+        if len(nums) < 3:
+            return max(nums)
 
         for num in nums:
             if num > first:
