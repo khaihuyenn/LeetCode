@@ -1,7 +1,7 @@
 class Solution(object):
     def findLengthOfLCIS(self, nums):
         current_count = 1
-        max_count = current_count
+        max_count = 1
 
         for i in range(1, len(nums)):
             if nums[i] > nums[i -1]:
