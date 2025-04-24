@@ -2,9 +2,13 @@ class Solution(object):
     def isAnagram(self, s, t):
         if len(s) != len(t):
             return False
-        counterS, counterT = {}, {}
-        for i in range(len(s)):
-            counterS[s[i]] = counterS.get(s[i], 0) + 1
-            counterT[t[i]] = counterT.get(t[i], 0) + 1
-        return counterS == counterT
+            
+        counter = {}
+        for char in s:
+            counter[char] = counter.get(char, 0) + 1
+        for char in t:
+            if char not in counter or counter[char] == 0:
+                return False
+            counter[char] -= 1
+        return True
         
