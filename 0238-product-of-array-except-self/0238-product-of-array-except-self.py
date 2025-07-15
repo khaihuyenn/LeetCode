@@ -6,15 +6,17 @@ class Solution(object):
                 prod *= num
             else:
                 zero_counter += 1
+
         if zero_counter > 1:
             return [0] * len(nums)
+
         for i in range(len(nums)):
-            if nums[i] != 0:
-                if zero_counter == 1:
+            if zero_counter == 1:
+                if nums[i] != 0:
                     nums[i] = 0
                 else:
-                    nums[i] = prod // nums[i]
+                    nums[i] = prod
             else:
-                nums[i] = prod
+                nums[i] = prod // nums[i]
         return nums
         
